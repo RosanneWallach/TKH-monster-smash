@@ -25,7 +25,9 @@ function playerAttack(){
 //use randomNum to generate attack points value between 1 - 5 and save the value to a variable named playerAttackPoints
 let playerAttackPoints = randomNum(1, 6);
 //subtract playerAttackPoints from monsterHealth and update the monsterHealth variable
-monsterHealth = playerAttackPoints;
+
+//15 - 1
+monsterHealth = monsterHealth - playerAttackPoints;
   //use an alert with string template literals to tell the player: 
   // 1. player attacked monster 
   // 2. how much damage the player did 
@@ -38,7 +40,8 @@ function monsterAttack(){
   //use randomNum to generate attack points value between 1 - 5 and save the value to a variable named monsterAttackPoints
 let monsterAttackPoints = random(1, 6);
   //subtract monsterAttackPoints from playerHealth and update the playerHealth variable 
-  playerHealth = monsterAttackPoints;
+  // playerHealth = monsterAttackPoints;
+  playerHealth = playerHealth - monsterAttackPoints;
 
   //use an alert with string template literals to tell the player: 
   // 1. monster attacked player 
@@ -88,11 +91,13 @@ function playGame() {
  
    //call playRound inside the while loop
     playRound();
+    // <0
+    // while( (monsterHealth > 0) &&  (playerHealth > 0))
   }
   //outside of while loop, declare a winner and use alert to show a win or lose message 
-  if (playerHealth < 0) {
+  if (playerHealth <= 0) {
     alert(`${monsterName} is the winner! You lose!`);
-  } else if (monsterHealth < 0){
+  } else if (monsterHealth <= 0){
     alert(`${playerName} is the winner! You win!`)
   }
 }
