@@ -11,6 +11,39 @@
 
   //declare a variable named monsterHealth and set it equal to the number value 15
   let monsterHealth = 15;
+  
+class Fighter{
+  constructor(healthPoints,attackMethod){
+    this.healthPoints = healthPoints;
+    this.attackMethod = attackMethod;
+  }
+  attack(Fighter){
+    let attackPoints = randomNum(1,6);
+    Fighter.healthPoints = Fighter.healthPoints - attackPoints;
+    alert(`${this.name} attacked ${Fighter.name} and did ${attackPoints} damage! ${Fighter.name} has ${Fighter.healthPoints} health left!`)
+  }
+}
+
+class Monster extends Fighter{
+  constructor(name, healthPoints, attackMethod){
+    super(healthPoints, attackMethod)
+    this.name = name
+  }
+}
+
+myMonster = new Monster("Vampire", 15, "hit")
+class Hero extends Fighter{
+
+  constructor(name, healthPoints, attackMethod){
+    super(healthPoints,attackMethod)
+    this.name = name
+  }
+}
+
+myHero = new Hero (playerName, 15, "punch")
+
+
+
 
 //random integer function 
 //see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
